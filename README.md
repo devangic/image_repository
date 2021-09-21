@@ -24,3 +24,6 @@
 * Logged in user can make the self uploaded image private, which stops other users from viewing those images
 * Logged in users can see their own uploaded images
 * Logged in users can delete single or multiple selected images
+
+* Here is the demo application
+https://image-repository-dv.herokuapp.com/
