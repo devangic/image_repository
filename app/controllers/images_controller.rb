@@ -36,4 +36,16 @@ class ImagesController < ApplicationController
 			return {success: false}
 		end
 	end
+
+	def change_permission
+		image = Image.find(params[:id])
+		if image.is_public?
+			image.is_public = false
+		else
+			image.is_public = true
+		end
+		image.save
+
+		redirect_to my_images_path
+	end
 end
