@@ -8,6 +8,13 @@
 	margin: 10px;
 }
 
+.col {
+	float: left;
+	width: 33.33%;
+	padding: 5px;
+	margin: 10px;
+}
+
 /* Clear floats after image containers */
 .row::after {
 	content: "";
@@ -15,6 +22,34 @@
 	display: table;
 }
 </style>
+<div class="row button">
+	<div class="col">
+		<%= link_to "Delete Selected", "#", id: "delete_selected" %>
+	</div>
+</div>
 <div class="row">
 	<%= render "display_images", images: @images, from: "my_pages" %>
 </div>
+
+<script type="text/javascript">
+	$("#delete_selected").click(function(){
+		var checkedImages = false;
+		var imageIds = [];
+		$('.chk_images:checked').each(function () {
+			imageIds.push($(this).val());
+		});
+
+		$.ajax({
+			url: "/delete_images",
+			type: "DELETE",
+			dataType: "script",
+			data: {image_ids: imageIds},
+			sucess: function(data){
+				alert(data);
+			},
+			error: function(){
+				console.log("ERROR IN DELETE");
+			}
+		})
+	});
+</script>

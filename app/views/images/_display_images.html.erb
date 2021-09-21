@@ -1,5 +1,6 @@
 <% images.each do |image| %>
 <div class="column">
+	<%= check_box_tag "images[]", image.id, false, id: "image_#{image.id}", class: "chk_images" if from == "my_pages" %>
 	<img src="<%= url_for(image.source) %>" alt="" style="width:100%">
 	<br />
 	<div style="display: inline;">

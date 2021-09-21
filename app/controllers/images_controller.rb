@@ -23,4 +23,17 @@ class ImagesController < ApplicationController
 
 		redirect_to my_images_path
 	end
+
+	def delete_images
+		begin
+			image_ids = params[:image_ids]
+			image_ids.each do |id|
+				img = Image.find(id)
+				img.destroy
+			end
+			return {success: true}
+		rescue
+			return {success: false}
+		end
+	end
 end
