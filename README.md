@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version - 2.7.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* System dependencies - PostgreSQL Database, ImageRick for Image Processing used by ActiveStorage
 
 * Configuration
+- Update the database.yml file with the local PostgreSQL credentials of your system
 
 * Database creation
+- Run 
+	rails db:create
+	rails db:migrate
 
-* Database initialization
+* Start the server
+- rails server
 
-* How to run the test suite
+* Open any browser and visit
+- http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* You can play with the SignUp and SignIn functionality
+* A registered user can login and upload single or multiple images
+* Logged in user can see all the public images of different users
+* Logged in user can make the self uploaded image private, which stops other users from viewing those images
+* Logged in users can see their own uploaded images
+* Logged in users can delete single or multiple selected images
