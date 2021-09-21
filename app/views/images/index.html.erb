@@ -1,0 +1,26 @@
+<style type="text/css">
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+	float: left;
+	width: 33.33%;
+	padding: 5px;
+	border: 1px solid;
+	margin: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+</style>
+<div class="row">
+	<%= form_for Image.new do |f| %>
+		<%= f.file_field :sources, multiple: true %>
+		<%= f.submit "Upload" %>
+	<% end %>
+</div>
+<div class="row">
+	<%= render "display_images", images: @images, from: "index_pages" %>
+</div>

@@ -1,0 +1,11 @@
+<% images.each do |image| %>
+<div class="column">
+	<img src="<%= url_for(image.source) %>" alt="" style="width:100%">
+	<br />
+	<div style="display: inline;">
+		<% if from == "my_pages" %>
+			<%= link_to "Delete", image_path(image), method: :delete, style: "display: inline-block; text-align: right;", data: {confirm: "Are you sure you want to delete this image?"} %>
+		<% end %>
+	</div>
+</div>
+<% end %>
